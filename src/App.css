@@ -1,32 +1,102 @@
-.App {
-  text-align: center;
+
+html{
+    background-color:grey;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body{
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+ul {
+  padding:0;
+  list-style: none;
+}
+
+.desktop_menu {
+    background-color: black;
+    display: flex;
+    height: 46px;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid rgba(238,238,238 ,1);
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.desktop_menu li:not(:last-child):not(.push_left):not(:first-child):not(.center_me) {
+  margin-right: 40px;
+}
+
+
+
+.center_me {
+
+  margin:auto;
+}
+
+.push_left{
+  margin-right:auto
+}
+
+.push_right{
+  margin-left:auto
+}
+.logo{
+  height: 1.5em;
+  margin:0;
+
+
+
+  /*HERE STARTS THE STYLE SHEET FOR THE HAMBURGER DROP DOWN MENU*/
+}
+.hamburger_menu{
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height:48px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.hamburger_menu li{
+  margin:auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #ffffff;
+
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+ /*STYLE SHEET FOR INTRO*/
+
+.intro_div{
+    background-repeat:no-repeat;
+    background-image: url("./Introduction/water_fall.jpg");
+    background-size:100%;
+    overflow:hidden;
+    height:300px;
+    width:100%;
+    position:relative;
+    top:0;
+    left:0;
+    z-index:-10;
+    background-position:50% 80%;
 }
+
+
+
+.place_holder{
+    height:500px;
+    background-color:silver;
+    border-radius:10px;
+    position:absolute;
+    top:300px;
+}
+
+
+.z_me{
+    position:relative;
+    z-index:99;
+}
+
+
+

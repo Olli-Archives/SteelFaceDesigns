@@ -2,10 +2,10 @@ import React from 'react';
 import {INTRO_ITEMS} from './index';
 
 export const Intro = ()=>
-    <div>
+    <div className='intro_title'>
         {INTRO_ITEMS.map((items)=>
             <ul key={items.objectID}>
-                <li>{items.title}</li>
+                <li className={items.className}>{items.title}</li>
             </ul>
         )}
     </div>;

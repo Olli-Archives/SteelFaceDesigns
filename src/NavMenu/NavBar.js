@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import {NavMenu, HamburgerMenu} from './index';
 import {debounce} from "lodash";
 import {PAGE_BREAK_POINT} from "../constants";
+import {Intro} from "../Introduction";
+
+
+
+
+
 
 export class NavBar extends Component{
     constructor(props){
@@ -56,6 +62,7 @@ export class NavBar extends Component{
 
 
     render(){
+
         return(
             <div className='z_me'>
                <NavMenu
@@ -68,6 +75,9 @@ export class NavBar extends Component{
                         filterTerm={this.state.hamFilter}
                         onClickSelection={this.hideHamburgerMenu}
                     /> : null
+                }
+                { this.state.filterTerm === 'mobile' && this.state.hamburgerMenu === 'hide' || this.state.filterTerm === 'desktop'?
+                    <Intro/>:null
                 }
             </div>
         )

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke-width: 0.59px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard 1">
+    <circle class="cls-1" cx="150" cy="150" r="140"/>
+    <path id="ShapeSketch" class="cls-2" d="M129,203V146H116V126h13V101s1.013-18.019,20-18,29,0,29,0v20H164s-7.027-1.172-7,6,0,17,0,17h21l-4,20H157v64H129v-7Z"/>
+  </g>
+</svg>

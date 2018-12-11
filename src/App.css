@@ -1,6 +1,6 @@
 
 html{
-    background-color:grey;
+
 }
 
 body{
@@ -13,18 +13,18 @@ ul {
 }
 
 .desktop_menu {
+
+    margin:0;
     background-color: black;
     display: flex;
     height: 46px;
     align-items: center;
-    padding: 0 10px;
-    border: 1px solid rgba(238,238,238 ,1);
-    border-radius: 5px;
+    padding: 0px 10px;
     color: #ffffff;
 }
 
 .desktop_menu li:not(:last-child):not(.push_left):not(:first-child):not(.center_me) {
-  margin-right: 40px;
+  margin: 0px 20px;
 }
 
 
@@ -61,42 +61,121 @@ ul {
   padding-top: 10px;
   padding-bottom: 10px;
   color: #ffffff;
-
-
 }
+
+.hamburger_menu .center_me{
+    font-size:1.5em;
+}
+
 
 
  /*STYLE SHEET FOR INTRO*/
 
 .intro_div{
     background-repeat:no-repeat;
-    background-image: url("./Introduction/water_fall.jpg");
-    background-size:100%;
+    background-image: url("./Introduction/test.jpg");
+    background-size:cover;
+    background-position: 50% 50%;
     overflow:hidden;
-    height:300px;
-    width:100%;
+    height:200px;
+    width:auto;
     position:relative;
     top:0;
     left:0;
     z-index:-10;
-    background-position:50% 80%;
-}
-
-
-
-.place_holder{
-    height:500px;
-    background-color:silver;
-    border-radius:10px;
-    position:absolute;
-    top:300px;
 }
 
 
 .z_me{
+
     position:relative;
     z-index:99;
 }
 
+.intro_title{
+    display:flex;
+    flex-direction: column;
+    color:white;
+    align-items: center;
+
+}
+
+.header{
+    font-size:2em;
+}
+
+.sub_header{
+    font-size:1.25em;
+}
+
+/*STYLE SHEET FOR ABOUT US*/
+.body{
+    text-align:center;
+}
+
+.body .subject{
+    font-size:1.5em;
+    text-decoration: underline;
+    padding: 10px 0px;
+}
+
+/*STYLE SHEET FOR CONTACT US   */
+.message{
+    height:300px;
+    width: 80%;
+    margin:20px;
+}
 
 
+
+
+
+
+/*STYLE SHEET FOR FOOTER */
+
+.footer .main{
+    height:100px;
+    background-color:purple;
+    color:white;
+    display:flex;
+    flex-direction: row;
+
+
+}
+
+.footer ul{
+    width:100%;
+    display:flex;
+    align-items: center;
+    padding:0px 10px;
+
+}
+.footer li{
+    padding:0 10px;
+
+
+
+}
+.footer li:not(:first-child):not(:last-child){
+ margin:auto;
+}
+
+.footer li:first-child{
+
+    flex:1;
+}
+
+.footer li:last-child{
+    margin-right:10px;
+}
+
+
+.social{
+    height:2.5em;
+}
+.signature{
+    background-color: black;
+    color:white;
+    text-align: center;
+    font-size:.5em;
+}

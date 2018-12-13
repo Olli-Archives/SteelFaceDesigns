@@ -2,7 +2,7 @@ import React from 'react';
 
 import logo from '../logo/logo.svg';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faBars} from '@fortawesome/free-solid-svg-icons';
 import {faTwitter} from '@fortawesome/free-brands-svg-icons';
 
@@ -18,7 +18,7 @@ const SIGN_IN = '/signin';
 */
 export const ROUTES = {
    LANDING:'/',
-   SIGN_UP:'/signup',
+    SIGN_UP:'/signup',
    SIGN_IN:'/signin',
     TERMS:'/terms',
 };

@@ -1,10 +1,35 @@
+
+import 'dotenv/config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+
+//setting up Firebase SEE BELOW
+import Firebase, { FirebaseContext } from './Firebase/index';
+
+
+
+
+
+console.log(process.env.MY_VAR_2);
+console.log(process.env.REACT_APP_HI);
+
+
+
+
+
+
+ReactDOM.render(
+
+    <FirebaseContext.Provider value ={new Firebase()}>
+        <App />
+    </FirebaseContext.Provider>,
+document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

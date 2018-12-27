@@ -15,11 +15,6 @@ import Firebase, { FirebaseContext } from './Firebase/index';
 
 
 
-console.log(process.env.MY_VAR_2);
-console.log(process.env.REACT_APP_HI);
-
-
-
 
 
 
@@ -28,7 +23,7 @@ ReactDOM.render(
     <FirebaseContext.Provider value ={new Firebase()}>
         <App />
     </FirebaseContext.Provider>,
-document.getElementById('root'),
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

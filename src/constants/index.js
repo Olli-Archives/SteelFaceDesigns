@@ -21,6 +21,7 @@ export const ROUTES = {
     SIGN_UP:'/signup',
    SIGN_IN:'/signin',
     TERMS:'/terms',
+    HOME:'/home'
 };
 
 
@@ -48,45 +49,78 @@ export const MENU_ITEMS = [
         link:'/about'
     },
     {
-        title:'AboutUs',
+        title:<img className='logo' src={logo} alt='SFD'/>,
         objectID:2,
+        className:"push_left",
+        reactive:"authdesktop",
+        link:'/about'
+    },
+    {
+        title:'AboutUs',
+        objectID:3,
         reactive:"desktop",
         link:'/about'
 
     },
     {
+        title:'AboutUs',
+        objectID:4,
+        reactive:"authdesktop",
+        link:'/about'
+
+    },
+    {
         title:'Contact Us',
-        objectID:3,
+        objectID:5,
         reactive:"desktop",
         link:'/contact'
 
     },
+    {
+        title:'Contact Us',
+        objectID:6,
+        reactive:"authdesktop",
+        link:'/contact'
 
+    },
     {
         title:'login',
-        objectID:4,
+        objectID:7,
         className:'push_right',
         reactive:"desktop",
         link:'/login'
     },
     {
+        title:'logout',
+        objectID:8,
+        className:'push_right',
+        reactive:"authdesktop",
+        link:''
+    },
+    {
         title:'login',
-        objectID:5,
+        objectID:9,
         className:'center_me',
         reactive:"mobile",
         link:'/login'
+    },   {
+        title:'logout',
+        objectID:10,
+        className:'center_me',
+        reactive:"authmobile",
+        link:''
     },
 
     {
         title:'AboutUs',
-        objectID:6,
+        objectID:11,
         className:'center_me',
         reactive:"ham_menu",
         link:'/about'
     },
     {
         title:'Contact Us',
-        objectID:7,
+        objectID:12,
         className:'center_me',
         reactive:"ham_menu",
         link:'/contact'

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { FirebaseContext } from '../Firebase';
 
 import {ROUTES} from '../constants/index';
+
 
 const SignUpPage = () => (
     <div>
@@ -22,7 +23,9 @@ const INITIAL_STATE = {
     error: null,
 };
 
-class SignUpForm extends Component {
+
+
+class SignUpFormBase extends Component {
     constructor(props) {
         super(props);
 
@@ -36,6 +39,7 @@ class SignUpForm extends Component {
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 this.setState({ ...INITIAL_STATE });
+                this.props.history.push(ROUTES.SIGN_IN);
             })
             .catch(error => {
                 this.setState({ error });
@@ -107,11 +111,17 @@ class SignUpForm extends Component {
     }
 }
 
+
+//IF WITH ROUTER IS USED ABOVE WHERE SignUpFormBase is declared, undefined error will occur.   I though that
+//programming was asyncrenous and and declaration order did not matter?????HELP!!!
+const SignUpForm = withRouter(SignUpFormBase);
+
 const SignUpLink = () => (
     <p>
         Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
     </p>
 );
+
 
 export default SignUpPage;
 

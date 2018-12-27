@@ -16,7 +16,8 @@ export class NavBar extends Component{
         this.state={
             filterTerm:'',
             hamburgerMenu:'hide',
-            hamFilter:'ham_menu'};
+            hamFilter:'ham_menu'
+        };
 
         this.toggleHamburgerMenu=this.toggleHamburgerMenu.bind(this);
         this.hideHamburgerMenu=this.hideHamburgerMenu.bind(this);
@@ -63,11 +64,13 @@ export class NavBar extends Component{
 
     render(){
 
+
         return(
             <div className='z_me'>
                <NavMenu
                    searchTerm={this.state.filterTerm}
                    onClickHamburgerButton={this.toggleHamburgerMenu}
+                   authUser={this.props.authUser}
                />
                 {
                     this.state.hamburgerMenu === 'show' && this.state.filterTerm === 'mobile'?

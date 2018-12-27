@@ -41,6 +41,12 @@ ul {
 .push_right{
   margin-left:auto
 }
+.desktop{
+    margin-left:auto
+}
+li .mobile{
+    margin:auto
+}
 .logo{
   height: 1.5em;
   margin:0;
@@ -178,4 +184,11 @@ ul {
     color:white;
     text-align: center;
     font-size:.5em;
+}
+
+/*REMOVE TEXT DECORATION FROM LINKS*/
+a{
+    text-decoration: none;
+    color:pink;
+
 }

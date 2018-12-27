@@ -1,5 +1,5 @@
 import {SignUpLink} from "../SignUp/index";
+import {PasswordForgetLink} from "../ForgetPassword";
 
-import {Login} from './Login.js';
 
-export {Login,SignUpLink};
+export {SignUpLink, PasswordForgetLink};

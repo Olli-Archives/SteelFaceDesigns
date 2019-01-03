@@ -6,6 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars} from '@fortawesome/free-solid-svg-icons';
 import {faTwitter} from '@fortawesome/free-brands-svg-icons';
 
+import {ADMIN} from "./roles";
+
 library.add(faTwitter,faBars);
 
 
@@ -21,7 +23,8 @@ export const ROUTES = {
     SIGN_UP:'/signup',
    SIGN_IN:'/signin',
     TERMS:'/terms',
-    HOME:'/home'
+    HOME:'/home',
+    ADMIN:'./admin'
 };
 
 
@@ -160,3 +163,5 @@ export const MENU_ITEMS = [
       "not only does this a well put together website, but the code will also be readable by other developers.  This " +
       "means that if you ever need to take the website to another company/developer they will be able to assit" +
       "you since the code is easy to read and universally understood";
+
+  export {ADMIN};

@@ -5,6 +5,7 @@ html{
 
 body{
   margin: 0;
+    background-color: black;
 }
 
 ul {
@@ -191,4 +192,64 @@ a{
     text-decoration: none;
     color:pink;
 
+}
+
+/*FORMATTING FOR FRONT PAGE*/
+
+.image_div{
+    display:flex;
+    background-color: black;
+    color:white;
+    width:200px;
+    height:200px;
+    overflow: hidden;
+    border-radius:1em;
+}
+
+.image_div img{
+        width:200px;
+        height:200px;
+}
+
+
+/*  UPDATE FLEX DIRECTION TO ROW WHEN IN PC VIEW */
+.img_ul{
+    display:flex;
+    flex-direction: ROW;
+
+}
+
+
+ul .paragraph_image_right{
+    margin:auto;
+    order:2;
+}
+ul .paragraph_image{
+    margin:auto;
+
+}
+
+.front_topics{
+   /* border:2px solid floralwhite;  */ /* for mobile view only*/
+    margin:2em;
+    border-radius:5px;
+    color:floralwhite;
+    background-color: black;
+    padding:1em;
+}
+
+.paragraph{
+    margin:auto;
+    padding:1em;
+}
+
+img .image{
+}
+
+
+
+/* only active when screen width is above mobile size */
+.front_title{
+    border-bottom: solid white 2px;
+    margin-bottom: 2em;
 }

@@ -7,19 +7,20 @@ import{HamburgerButton} from "../HamburgerButton/index";
 import { Link } from 'react-router-dom';
 import logo from "../logo/logo.svg";
 import {SignOutButton} from "../SignOut";
+import {withAuthentication} from "../Session"
 
 
 
 //ROUTER RELATED IMPORTS   ******ABOVE******
 
-import { withAuthentication } from "../Session"
+
 
 
 
 export const NavMenu = (props)=> {
-    const {authUser, searchTerm, onClickHamburgerButton}=props;
-    console.log('here is auth user');
-    console.log(authUser);
+    const {searchTerm, onClickHamburgerButton, authUser}=props;
+
+    console.log('nav bar auth',authUser,`navBar Search Term`,searchTerm);
 
 
 

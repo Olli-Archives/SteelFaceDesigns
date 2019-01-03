@@ -1,27 +1,21 @@
-
 import 'dotenv/config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import {UserContext} from './Context/User-Context';
 
 
 //setting up Firebase SEE BELOW
-import Firebase, { FirebaseContext } from './Firebase/index';
-
-
-
-
-
-
+import Firebase, {FirebaseContext} from './Firebase/index';
 
 
 ReactDOM.render(
-
-    <FirebaseContext.Provider value ={new Firebase()}>
-        <App />
+    <FirebaseContext.Provider value={new Firebase()}>
+        <UserContext>
+            <App/>
+        </UserContext>
     </FirebaseContext.Provider>,
     document.getElementById('root'),
 );

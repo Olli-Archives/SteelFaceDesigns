@@ -1,194 +1,585 @@
+/*SET COLOR OF FONT ON ALL PAGES BELOW*/
+.page_theme{
 
-html{
+    background-color: #F7F7F7;
+
+}
+/*SET COLOR OF FONT ON ALL PAGES ABOVE*/
+
+
+
+/* SET COLOR OF FONT FOR NAV BAR BELOW*/
+.nav_theme{
+    color: lightgray;
+    font-size:15px;
+    font-weight:100;
+    font-family: sans-serif;
+    letter-spacing: .1em;
+    text-transform: capitalize;
+}
+
+
+/*SET COLOR OF FONT FOR NAV BAR ABOVE*/
+
+
+
+/*REMOVE TEXT DECORATION FROM LINKS*/
+a {
+    text-decoration: none;
+    color: unset;
+
 
 }
 
-body{
-  margin: 0;
+
+html
+{
+    position: relative;
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-weight:200;
+}
+
+
+
+body {
+    margin: 0;
+    background-color: #F7F7F7;
+    text-decoration: none;
+
 }
 
 ul {
-  padding:0;
-  list-style: none;
+    padding: 0;
+    list-style: none;
+    margin-block-start:0;
+    margin-block-end:0;
+}
+
+p{
+    text-align: left;
+    margin:40px;
+}
+
+h1{
+    font-weight:unset;
+}
+
+
+
+.topic_header{
+    color:#CB521E;
+    font-size:1.75em;
+    text-align: center;
+}
+.center{
+    text-align: center;
+}
+.pointer{
+    cursor:pointer;
+}
+
+.page_content{
+    padding-bottom: 110px;
+}
+
+.text_box{
+    width: 80%;
+    min-height:200px;
+    resize:none;
+    border-radius:3px;
+    margin:10px;
+}
+
+
+
+/* STYLE SHEET FOR NAV MENU */
+
+
+.push_right_ham{
+
+    margin-left: auto;
+    cursor:pointer;
+    color:pink;
+}
+
+ul .button{
+
+    cursor:pointer;
 }
 
 .desktop_menu {
 
-    margin:0;
-    background-color: black;
+    margin: 0;
+    background-color: #1d1d1d;
     display: flex;
-    height: 46px;
+    height: 75px;
     align-items: center;
     padding: 0px 10px;
-    color: #ffffff;
+
+    box-shadow: 0 2px 1px -1px lightgrey;
+
 }
 
 .desktop_menu li:not(:last-child):not(.push_left):not(:first-child):not(.center_me) {
-  margin: 0px 20px;
+    margin: 0px 20px 0 0;
 }
-
 
 
 .center_me {
 
-  margin:auto;
+    margin: auto;
 }
 
-.push_left{
-  margin-right:auto
+.push_left {
+    margin-right: auto
 }
 
-.push_right{
-  margin-left:auto
+.push_right {
+    margin-left: auto
 }
-.desktop{
-    margin-left:auto
-}
-li .mobile{
-    margin:auto
-}
-.logo{
-  height: 1.5em;
-  margin:0;
-
-
-
-  /*HERE STARTS THE STYLE SHEET FOR THE HAMBURGER DROP DOWN MENU*/
-}
-.hamburger_menu{
-  display:flex;
-  flex-direction: column;
-  height:48px;
-
-}
-
-.hamburger_menu li{
-  margin:auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: #ffffff;
-}
-
-.hamburger_menu .center_me{
-    font-size:1.5em;
+.nav_item{
+    margin-left:20px;
+    margin-right:0;
 }
 
 
 
- /*STYLE SHEET FOR INTRO*/
 
-.intro_div{
-    background-repeat:no-repeat;
-    background-image: url("./Introduction/test.jpg");
-    background-size:cover;
-    background-position: 50% 50%;
-    overflow:hidden;
-    height:200px;
-    width:auto;
-    position:relative;
-    top:0;
-    left:0;
-    z-index:-10;
+.desktop {
+    margin-left: auto
 }
 
-
-.z_me{
-
-    position:relative;
-    z-index:99;
+li .mobile {
+    margin: auto
 }
 
-.intro_title{
-    display:flex;
+.logo {
+    height: 60px;
+    margin: 0;
+
+
+    /*HERE STARTS THE STYLE SHEET FOR THE HAMBURGER DROP DOWN MENU*/
+}
+
+.vert_center{
+    align-content: center;
+    justify-content: center;
+    margin:auto;
+
+}
+
+.hamburger_menu {
+    display: flex;
     flex-direction: column;
-    color:white;
-    align-items: center;
+    color:#D3D3D3;
+    margin:auto;
+    width:100%;
+    font-size: 30px;
+
+
+}
+.hamburger_menu_div{
+    display:flex;
+    margin:auto;
+    height:275px;
+}
+
+.hamburger_menu li {
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
-.header{
-    font-size:2em;
+.hamburger_menu .center_me {
+    font-size: 1.5em;
 }
 
-.sub_header{
-    font-size:1.25em;
+
+/*STYLE SHEET FOR INTRO*/
+
+.intro_div {
+    background-repeat: no-repeat;
+    background-image: url("./Introduction/test.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    overflow: hidden;
+    height: 350px;    /*ATTN THIS COULD BE ADJUSTED WITH HOC IF WANT TO ADD USER STATUS BAR*/
+    width: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -10;
+
+}
+
+
+.z_me {
+
+    position: relative;
+    z-index: 99;
+}
+
+.intro_title {
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+    justify-content: center;
+    height:275px;
+    text-align: center;
+
+
+}
+
+.header {
+    font-size: 3.25em;
+    letter-spacing: .1em;
+
+
+}
+
+.sub_header {
+    font-size: 1.5em;
+
+
 }
 
 /*STYLE SHEET FOR ABOUT US*/
-.body{
-    text-align:center;
-}
 
-.body .subject{
-    font-size:1.5em;
-    text-decoration: underline;
-    padding: 10px 0px;
-}
+
 
 /*STYLE SHEET FOR CONTACT US   */
-.message{
-    height:300px;
+.message {
+
     width: 80%;
-    margin:20px;
+    margin: 20px;
+    height:300px;
+    border-radius:1em;
 }
-
-
-
+/*STYLE SHEET FOR SIGNUP*/
 
 
 
 /*STYLE SHEET FOR FOOTER */
 
-.footer .main{
-    height:100px;
-    background-color:purple;
-    color:white;
-    display:flex;
-    flex-direction: row;
-
-
-}
-
-.footer ul{
+.footer{
+    position:absolute;
+    bottom:0px;
     width:100%;
-    display:flex;
+    background-color: #1d1d1d;
+
+
+}
+
+.footer .main {
+
+
+    height: 100px;
+    color: white;
+    font-weight:100;
+    display: flex;
+    flex-direction: row;
+    border-bottom:1px solid grey;
+
+
+
+}
+
+.footer ul {
+    width: 100%;
+    display: flex;
     align-items: center;
-    padding:0px 10px;
+    padding: 0px 10px;
 
 }
-.footer li{
-    padding:0 10px;
 
+.footer li {
+    padding: 0 10px;
 
 
 }
-.footer li:not(:first-child):not(:last-child){
- margin:auto;
+
+.footer li:not(:first-child):not(:last-child) {
+    margin: auto;
 }
 
-.footer li:first-child{
+.footer li:first-child {
 
-    flex:1;
+    flex: 1;
 }
 
-.footer li:last-child{
-    margin-right:10px;
+.footer li:last-child {
+    margin-right: 10px;
 }
 
 
-.social{
-    height:2.5em;
+.social {
+    height: 2.5em;
 }
-.signature{
-    background-color: black;
-    color:white;
+
+.signature {
+    background-color: #1d1d1d;
+    color: white;
     text-align: center;
-    font-size:.5em;
+    font-size: .5em;
 }
 
-/*REMOVE TEXT DECORATION FROM LINKS*/
-a{
-    text-decoration: none;
-    color:pink;
 
+
+/******FORMATTING FOR FRONT PAGE***********/
+
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.image_div_mobile {
+    display: flex;
+    background-color: #1d1d1d;
+    color: white;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.image_div_desktop {
+    display: flex;
+    background-color: #1d1d1d;
+    color: white;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 1em;
+
+
+}
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.image_div_mobile img {
+    width: 150px;
+    height: 150px;
+}
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.image_div_desktop img {
+    width: 300px;
+    height: 300px;
+}
+
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.img_ul_desktop {
+    display: flex;
+    flex-direction: ROW;
+
+}
+
+.img_ul_mobile {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+ul .paragraph_image_right_mobile {
+    margin: auto;
+}
+
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+ul .paragraph_image_right_desktop {
+    margin:auto;
+    order: 2;
+}
+
+
+ul .paragraph_image {
+    margin: auto;
+
+}
+
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.front_topics_mobile {
+
+
+    font-size: .8em;
+    margin: 2em;
+    border: 2px solid floralwhite;
+    border-radius: 15px;
+    background-color: white;
+    overflow: hidden;
+
+}
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.front_topics_desktop {
+
+    margin: 0 2em 0 2em;
+    border-radius: 5px;
+    color:#1d1d1d;
+    padding: 0 1em 0 1em ;
+}
+
+.front_topics_btm_desktop {
+
+    margin: 0 2em 0 2em;
+    border-radius: 5px;
+    color:#1d1d1d;
+    padding: 0 1em 70px 1em ;
+}
+
+.paragraph {
+    display:flex;
+    flex-direction: column;
+    margin: auto;
+    min-height: 380px;
+
+
+    font-size: 1.25em;
+}
+
+
+/*These settings toggle between mobile and desktop via info from HOC*/
+.front_title_desktop {
+
+    margin:40px 0 0 0;
+
+    box-shadow: 0 3px 2px -2px #01718B;
+    font-family: cursive;
+    font-size:4em;
+}
+
+
+/*HERE ARE THE CSS FOR ADMIN PAGE*/
+.admin_users{
+    color:white;
+}
+.message_handler{
+
+    text-align: left;
+}
+.admin_intro{
+
+    text-align: center;
+}
+
+.admin_intro h1 {
+
+    border-top: solid pink 2px;
+    border-bottom: solid pink 2px;
+}
+
+
+.admin_messages{
+    border-bottom: 2px solid white;
+    padding-bottom: 1em;
+}
+.admin_customer_message{
+    background-color: white;
+    color:black;
+    padding:1em;
+    border-radius:1em;
+    margin:1em;
+}
+
+/*CONTACT US PAGE STYLE*/
+
+
+.contact_us h1, h2{
+    text-align: center;
+}
+
+
+/*LOGIN PAGE STYLE*/
+
+
+.login_page h1{
+    text-align: center;
+}
+.email{
+    margin:.5em;
+}
+
+
+.mobile_image_keyboard{
+    position:relative;
+    display:flex;
+    width:100%;
+    background-color:brown;
+    height:150px;
+    background-size: cover;
+    background-image: url("./FrontPage/pink_keyboard.jpg");
+    opacity:.4;
+}
+
+.mobile_image_progress{
+    position:relative;
+    display:flex;
+    width:100%;
+    background-color:brown;
+    height:150px;
+    background-size:cover;
+    background-image: url("./FrontPage/progress_mobile.jpg");
+    opacity:.4;
+}
+.mobile_image_mail{
+    position:relative;
+    display:flex;
+    width:100%;
+    background-color:brown;
+    height:150px;
+    background-size:cover;
+    background-image: url("./FrontPage/envelopes.jpg");
+    opacity:.4;
+}
+
+
+.mobile_header{
+    display: flex;
+    position:absolute;
+    top:0;
+    font-family: cursive;
+    font-size:50px;
+    margin:auto;
+    color:black;
+    font-weight:400;
+    height:150px;
+    align-content: center;
+
+
+}
+.relative{
+    display:flex;
+    position:relative;
+    justify-content: center;
+    align-content: center;
+}
+.centering_div{
+    margin:auto;
+    text-align: center;
+}
+.fa_div{
+    font-size: 40px;
+}
+
+.paragraph_no_min{
+    display:flex;
+    flex-direction: column;
+    margin: auto;
+    font-size: 1.25em;
+}
+.response{
+    background-color: lightblue;
+    border:solid 1px green;
+    border-radius:4px;
+    margin:5px;
+}
+.message_ugh{
+    color:purple;
+}
+.flex{
+    display:flex;
 }

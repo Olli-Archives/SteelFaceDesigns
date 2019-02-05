@@ -5,7 +5,7 @@ import { FirebaseContext} from '../Firebase';
 export const SignOutButton = () =>(
 
         <FirebaseContext.Consumer>
-             {firebase => <button type="button" onClick={firebase.doSignOut}>Sign Out</button>}
+                {firebase => <ul className={`button`} type="button" onClick={firebase.doSignOut}><li className={`pink_pointer`}>SIGN OUT</li></ul>}
         </FirebaseContext.Consumer>
 
 );

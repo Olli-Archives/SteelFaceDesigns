@@ -1,25 +1,28 @@
 import React from 'react';
 
-import { PasswordForgetForm } from '../ForgetPassword';
+import {PasswordForgetForm} from '../ForgetPassword';
 import PasswordChangeForm from '../PasswordChange';
 import {withAuthorization} from '../Session';
 
 import {withFirebase} from "../Firebase";
 
+import {User} from "../Context/User-Context"
 
 
-const AccountPageBase = (props) => {
+const AccountPageBase = () => {
 
-console.log('check out myprops');
 
-const email = props.firebase.auth.currentUser && props.firebase.auth.currentUser.email;
+    console.log(condition);
 
-    return(
+    return (
         <div>
-            <h1>Account:{email}</h1>
+            <User.Consumer>
 
-            <PasswordForgetForm />
-            <PasswordChangeForm />
+                {providerState => <h1>Account:{providerState.user.email}</h1>}
+
+            </User.Consumer>
+            <PasswordForgetForm/>
+            <PasswordChangeForm/>
         </div>
     )
 };
@@ -27,8 +30,8 @@ const email = props.firebase.auth.currentUser && props.firebase.auth.currentUser
 const AccountPage = withFirebase(AccountPageBase);
 
 
+const condition = firebaseAuth => !!firebaseAuth && !!firebaseAuth.email;
 
-const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(AccountPage);
 

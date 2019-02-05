@@ -2,6 +2,7 @@
 
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 
 
 const config = {
@@ -18,6 +19,7 @@ class Firebase {
     constructor() {
         app.initializeApp(config);
         this.auth = app.auth();
+        this.db = app.database();
     }
     // *** Auth API ***
 
@@ -35,6 +37,17 @@ class Firebase {
 
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
+
+    // *** User API ***
+    user = uid => this.db.ref(`users/${uid}`);
+
+    users = () => this.db.ref('users');
+
+    message = uid => this.db.ref(`users/${uid}/message`);
+
+    reply = uid => this.db.ref(`users/${uid}`);
+
+    admin = () => this.db.ref(`admin`)
 }
 
 export default Firebase;

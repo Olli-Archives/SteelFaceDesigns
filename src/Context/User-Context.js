@@ -53,14 +53,6 @@ class UserContextBase extends Component {
 
 
 
-            /*
-            (firebaseAuth) => this.setState((prevState) => (
-                    Object.assign({}, prevState, {user: firebaseAuth})
-                ),
-                () => console.log('user changed',this.state)
-            )
-        */
-
 
 
         );
@@ -73,6 +65,7 @@ class UserContextBase extends Component {
 
 
     render() {
+        console.log('HOC passing down value',this.state.user);
         console.log('**value passed down to account=>display email***', this.state);
 
         return (

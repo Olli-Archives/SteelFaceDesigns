@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 
 import {FirebaseContext} from '../Firebase';
-
 import {ROUTES} from '../constants/index';
 import {ADMIN} from '../constants/index';
+import withWindowListener from "../Session/withWindowListener";
+import {withAuthentication} from "../Session";
 
 
 const SignUpPage = () => (
@@ -17,12 +18,17 @@ const SignUpPage = () => (
 
 
 const INITIAL_STATE = {
+
     username: '',
     email: '',
     passwordOne: '',
     passwordTwo: '',
     isAdmin: false,
     error: null,
+};
+
+const SECRET = {
+    SECRET_NAME: process.env.REACT_APP_ADMIN
 };
 
 
@@ -32,6 +38,9 @@ class SignUpFormBase extends Component {
 
         this.state = {...INITIAL_STATE};
     }
+
+
+
 
 
     onSubmit = event => {
@@ -46,6 +55,7 @@ class SignUpFormBase extends Component {
             .doCreateUserWithEmailAndPassword(email, passwordOne)
 
             .then(authUser => {
+                console.log('original sign in auth user',authUser);
                 // Create a user in your Firebase realtime database
                 return this.props.firebase
                     .user(authUser.user.uid)
@@ -53,8 +63,22 @@ class SignUpFormBase extends Component {
                         username,
                         email,
                         roles
-                    });
-            })
+                    })
+            }
+        )
+            .then(() => {
+                console.log("sending in admin info",this.props.auth);
+                if(this.props.auth.roles.includes("ADMIN")) {
+                    // Create admin database in your Firebase realtime database
+                    return this.props.firebase
+                        .admin()
+                        .update({
+                            [this.props.auth.uid]: {"name": "olli"}
+                        })
+                }
+                }
+            )
+
 
 
             .then(() => {
@@ -78,6 +102,8 @@ class SignUpFormBase extends Component {
     };
 
     render() {
+
+
         const {
             username,
             email,
@@ -92,57 +118,104 @@ class SignUpFormBase extends Component {
             passwordOne === '' ||
             email === '' ||
             username === '';
-
+        const window = this.props.window;
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="username"
-                    value={username}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Full Name"
-                />
-                <input
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <input
-                    name="passwordOne"
-                    value={passwordOne}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Password"
-                />
-                <input
-                    name="passwordTwo"
-                    value={passwordTwo}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Confirm Password"
-                />
+            <div className={`front_topics_${window}`}>
+                {window === "mobile" ?
+                    <div className={`relative`}>
+                        <div className={`mobile_image_mail`}/>
+                        <div className={`mobile_header`}>
+                            <div className={`centering_div`}>Sign Up</div>
+                        </div>
+                    </div>
+                    :
+                    null
+                }
+                {
+                    window === "desktop" ?
+                        <div className={`center`}><h1 className={`front_title_${window}`}>Sign Up</h1></div> : null
+                }
+                <form onSubmit={this.onSubmit}>
+                    <ul className={`center`}>
+                        <li className='paragraph'>
+                            <div className={`vert_center`}>
+                                <p className={`topic_header`}>Lets Make Your Account</p>
+                                <p>An account is required to send us messages. If you have any issues creating
+                                    an account please emails us at the address below and we will get back to you
+                                    ASAP.</p>
+                            </div>
+                            <li><h3>Contact Email</h3></li>
+                            <li>Contact@SteelfaceDesigns.com</li>
+                            <li><h2>Create Account</h2></li>
 
-                <label>
-                    Admin:
-                    <input
-                        name="isAdmin"
-                        type="checkbox"
-                        checked={isAdmin}
-                        onChange={this.onChangeCheckBox}
-                    />
-                </label>
+                        </li>
+                        <li>
+                            <input
+                                className={`email`}
+                                name="username"
+                                value={username}
+                                onChange={this.onChange}
+                                type="text"
+                                placeholder="Full Name"
+                            />
+                        </li>
+                        <li>
+                            <input
+                                className={`email`}
+                                name="email"
+                                value={email}
+                                onChange={this.onChange}
+                                type="text"
+                                placeholder="Email Address"
+                            />
+                        </li>
+                        <li>
+                            <input
+                                className={`email`}
+                                name="passwordOne"
+                                value={passwordOne}
+                                onChange={this.onChange}
+                                type="password"
+                                placeholder="Password"
+                            />
+                        </li>
+                        <li>
+                            <input
+                                className={`email`}
+                                name="passwordTwo"
+                                value={passwordTwo}
+                                onChange={this.onChange}
+                                type="password"
+                                placeholder="Confirm Password"
+                            />
+                        </li>
 
-
-                <button disabled={isInvalid} type="submit">
-                    Sign Up
-                </button>
-
-                {error && <p>{error.message}</p>}
-
-            </form>
+                        {this.state.username === SECRET.SECRET_NAME ?
+                            <li>
+                                <label>
+                                    Admin:
+                                    <input
+                                        name="isAdmin"
+                                        type="checkbox"
+                                        checked={isAdmin}
+                                        onChange={this.onChangeCheckBox}
+                                    />
+                                </label>
+                            </li> : null
+                        }
+                        <li>
+                            <button disabled={isInvalid} type="submit">
+                                Sign Up
+                            </button>
+                        </li>
+                        <li>
+                            {error && <p>{error.message}</p>}
+                        </li>
+                        <li><br/></li>
+                    </ul>
+                </form>
+            </div>
         );
     }
 }
@@ -150,15 +223,22 @@ class SignUpFormBase extends Component {
 
 //IF WITH ROUTER IS USED ABOVE WHERE SignUpFormBase is declared, undefined error will occur.   I though that
 //programming was asyncrenous and and declaration order did not matter?????HELP!!!
-const SignUpForm = withRouter(SignUpFormBase);
+const SignUpForm = withWindowListener(withRouter(withAuthentication(SignUpFormBase)));
 
 const SignUpLink = () => (
-    <p>
-        Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-    </p>
+    <ul className={`center`}>
+        <li>
+            <h3> Don't have an account?</h3>
+        </li>
+        <li>
+            <Link to={ROUTES.SIGN_UP}>
+                <button className={`pointer`}>Sign Up</button>
+            </Link>
+        </li>
+    </ul>
 );
 
 
-export default SignUpPage;
+export default (SignUpPage);
 
 export {SignUpForm, SignUpLink};

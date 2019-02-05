@@ -34,24 +34,25 @@ class App extends Component {
                     <div className='intro_div'>
                         <NavBar authUser={this.props.auth}/>
                     </div>
-                    <Route exact path={''} component={FrontPage}/>
-                    <Route path={'/about'} component={AboutUs}/>
-                    <Route path={'/contact'} component={ContactUs}/>
-                    <Route path={'/login'} component={SignInPage}/>
-                    <Route path={'/signup'} component={SignUpPage}/>
-                    <Route path={'/home'} component={Home}/>
-                    <Route path={'/forget'} component={PasswordForgetForm}/>
-                    <Route path={'/account'} component={AccountPage}/>
-                    <Route path={'/admin'} component={AdminPage}/>
-                    <Footer/>
+                    <div className={`page_content`}>
+                        <Route exact path={''} component={FrontPage}/>
+                        <Route path={'/about'} component={AboutUs}/>
+                        <Route path={'/contact'} component={ContactUs}/>
+                        <Route path={'/login'} component={SignInPage}/>
+                        <Route path={'/signup'} component={SignUpPage}/>
+                        <Route path={'/home'} component={Home}/>
+                        <Route path={'/forget'} component={PasswordForgetForm}/>
+                        <Route path={'/account'} component={AccountPage}/>
+                        <Route path={'/admin'} component={AdminPage}/>
+                        <Footer/>
+                    </div>
                 </div>
             </Router>
+
 
         );
     }
 }
-
-
 
 
 export default withAuthentication(App);

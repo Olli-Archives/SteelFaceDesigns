@@ -57,6 +57,7 @@ const withAuthorization = condition => Component => {
 
         render() {
             return (
+
                 <User.Consumer>
                     {authUser => {
 

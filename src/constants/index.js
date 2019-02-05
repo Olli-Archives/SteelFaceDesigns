@@ -11,20 +11,15 @@ import {ADMIN} from "./roles";
 library.add(faTwitter,faBars);
 
 
-//CONSTANTS FOR ROUTING
-/*
-const LANDING = '/';
-const SIGN_UP = '/signup';
-const SIGN_IN = '/signin';
- TERMS = '/terms';
-*/
+
 export const ROUTES = {
-   LANDING:'/',
+   LANDING:'',
     SIGN_UP:'/signup',
    SIGN_IN:'/signin',
     TERMS:'/terms',
     HOME:'/home',
-    ADMIN:'./admin'
+    ADMIN:'./admin',
+    CONTACT:'./contact'
 };
 
 
@@ -40,89 +35,61 @@ export const MENU_ITEMS = [
     {
         title:<img className='logo' src={logo} alt='SFD'/>,
         objectID:0,
-        className:"li",
+        className:"push_left",
         reactive:"mobile",
-        link:'/about'
+        link:''
     },
     {
         title:<img className='logo' src={logo} alt='SFD'/>,
         objectID:1,
         className:"push_left",
         reactive:"desktop",
-        link:'/about'
+        link:''
     },
     {
         title:<img className='logo' src={logo} alt='SFD'/>,
         objectID:2,
         className:"push_left",
         reactive:"authdesktop",
-        link:'/about'
+        link:''
     },
     {
-        title:'AboutUs',
+        title:'CONTACT',
         objectID:3,
-        reactive:"desktop",
-        link:'/about'
-
-    },
-    {
-        title:'AboutUs',
-        objectID:4,
-        reactive:"authdesktop",
-        link:'/about'
-
-    },
-    {
-        title:'Contact Us',
-        objectID:5,
-        reactive:"desktop",
-        link:'/contact'
-
-    },
-    {
-        title:'Contact Us',
-        objectID:6,
-        reactive:"authdesktop",
-        link:'/contact'
-
-    },
-    {
-        title:'login',
-        objectID:7,
         className:'push_right',
+        reactive:"desktop",
+        link:'/contact'
+
+    },
+    {
+        title:'CONTACT',
+        objectID:4,
+        className:'push_right',
+        reactive:"authdesktop",
+        link:'/contact'
+
+    },
+
+    {
+        title:'LOGIN',
+        objectID:7,
+        className:'',
         reactive:"desktop",
         link:'/login'
     },
     {
-        title:'logout',
+        title:'LOGOUT',
         objectID:8,
         className:'push_right',
         reactive:"authdesktop",
         link:''
     },
-    {
-        title:'login',
-        objectID:9,
-        className:'center_me',
-        reactive:"mobile",
-        link:'/login'
-    },   {
-        title:'logout',
-        objectID:10,
-        className:'center_me',
-        reactive:"authmobile",
-        link:''
-    },
+
+
+
 
     {
-        title:'AboutUs',
-        objectID:11,
-        className:'center_me',
-        reactive:"ham_menu",
-        link:'/about'
-    },
-    {
-        title:'Contact Us',
+        title:'CONTACT',
         objectID:12,
         className:'center_me',
         reactive:"ham_menu",

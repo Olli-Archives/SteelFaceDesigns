@@ -11,7 +11,7 @@ const withAuthentication = Component => {
             return (
                 <User.Consumer>
                     {
-                        ({user}) => <Component auth={user}/>
+                        ({user}) => <Component {...this.props} auth={user}/>
                     }
                 </User.Consumer>
             );

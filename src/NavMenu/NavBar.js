@@ -7,8 +7,6 @@ import {Intro} from "../Introduction";
 
 
 
-
-
 export class NavBar extends Component{
     constructor(props){
         super(props);
@@ -77,6 +75,7 @@ export class NavBar extends Component{
                     <HamburgerMenu
                         filterTerm={this.state.hamFilter}
                         onClickSelection={this.hideHamburgerMenu}
+                        authUser={this.props.authUser}
                     /> : null
                 }
                 { this.state.filterTerm === 'mobile' && this.state.hamburgerMenu === 'hide' || this.state.filterTerm === 'desktop'?

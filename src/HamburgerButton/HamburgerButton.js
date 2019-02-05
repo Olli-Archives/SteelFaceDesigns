@@ -9,4 +9,4 @@ library.add(faBars,faStroopwafel);
 
 
 export const HamburgerButton = (props)=>
-    <p onClick={props.onClick}><FontAwesomeIcon icon="bars"/></p>;
+    <p className={`pointer`} onClick={props.onClick}><div className={`fa_div`}><FontAwesomeIcon icon="bars"/></div></p>;

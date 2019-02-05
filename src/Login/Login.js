@@ -6,11 +6,11 @@ import {SignUpLink} from '../SignUp';
 import {FirebaseContext} from '../Firebase';
 import {ROUTES} from '../constants/index';
 import {PasswordForgetLink} from "../ForgetPassword";
+import withWindowListener from "../Session/withWindowListener";
 
 
 const SignInPage = () => (
-    <div>
-        <h1>SignIn</h1>
+    <div className={`page_theme`}>
         <FirebaseContext.Consumer>
 
             {
@@ -18,8 +18,7 @@ const SignInPage = () => (
             }
 
         </FirebaseContext.Consumer>
-        <SignUpLink/>
-        <PasswordForgetLink/>
+
     </div>
 );
 
@@ -43,7 +42,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({...INITIAL_STATE});
-                this.props.history.push(ROUTES.HOME);
+                this.props.history.push(ROUTES.CONTACT);
             })
 
 
@@ -63,34 +62,82 @@ class SignInFormBase extends Component {
 
         const isInvalid = password === '' || email === '';
 
+        const window = this.props.window;
+
         return (
 
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <input
-                    name="password"
-                    value={password}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Password"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Sign In
-                </button>
-                {error && <p>{error.message}</p>}
-            </form>
+
+            <div className={`front_topics_${window}`}>
+
+
+                {window === "mobile" ?
+                    <div className={`relative`}>
+                        <div className={`mobile_image_mail`}/>
+                        <div className={`mobile_header`}>
+                            <div className={`centering_div`}>Login</div>
+                        </div>
+                    </div>
+                    :
+                    null
+                }
+                {
+                    window === "desktop" ?
+                        <div className={`center`}><h1 className={`front_title_${window}`}>Login</h1></div> : null
+                }
+
+
+                <form onSubmit={this.onSubmit}>
+                    <ul className={`center`}>
+
+
+                        <li className='paragraph_no_min'>
+                            <div className={`vert_center`}>
+                                <p className={`topic_header`}>Welcome Back</p>
+                                <p>Plese sign in using your email and password below. If you do not have an account
+                                    and or forgot your password please use the links below the login section</p>
+                            </div>
+                        </li>
+                        <li><h3>Login Section</h3></li>
+                        <li>
+                            <input
+                                className={`email`}
+                                name="email"
+                                value={email}
+                                onChange={this.onChange}
+                                type="text"
+                                placeholder="Email Address"
+                            />
+                        </li>
+                        <li>
+                            <input
+                                className={`email`}
+                                name="password"
+                                value={password}
+                                onChange={this.onChange}
+                                type="password"
+                                placeholder="Password"
+                            />
+                        </li>
+                        <li>
+                            <button className={`button`} disabled={isInvalid} type="submit">
+                                Sign In
+                            </button>
+                        </li>
+                        <li>
+                            {error && <p>{error.message}</p>}
+                        </li>
+                    </ul>
+                </form>
+                <SignUpLink/>
+                <PasswordForgetLink/>
+                <br/>
+            </div>
 
         );
     }
 }
 
-const SignInForm = withRouter(SignInFormBase);
+const SignInForm = withWindowListener(withRouter(SignInFormBase));
 
 
 export default SignInPage;

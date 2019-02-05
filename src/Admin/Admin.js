@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {withFirebase} from "../Firebase";
 import withAuthorization from "../Session/withAuthorization";
-
-
+import MessageHandler from "../DataHandling/MessageHandler";
 
 
 class AdminPageBase extends Component {
@@ -10,24 +9,27 @@ class AdminPageBase extends Component {
         super(props);
 
         this.state = {
-            users:[],
-            loading:false
+            users: [],
+            loading: false
         }
     }
 
 
+    componentDidMount() {
+        this.setState({loading: true});
 
 
-    componentDidMount(){
-        this.setState({ loading: true });
+
 
         this.props.firebase.users().on('value', snapshot => {
             const usersObject = snapshot.val();
+            console.log(`admin snapshot of key value pairs`,usersObject);
 
-            const usersList  = Object.keys(usersObject).map(key=>({
+            const usersList = Object.keys(usersObject).map(key => ({
                 ...usersObject[key],
-                uid:key,
+                uid: key,
             }));
+            console.log('map through keys***',usersList);//2.now the key has been generated into a predictable number, and the iud is fed inside the object under the key of uid
 
 
             this.setState({
@@ -42,16 +44,16 @@ class AdminPageBase extends Component {
     }
 
 
+    render() {
 
-    render(){
         const {loading, users} = this.state;
-        return(
-            <div>
-            <h1>Welcome to Admin Page</h1>
+        return (
+            <div className="admin_intro">
+
 
                 {loading && <div>Loading ...</div>}
 
-                <UserList users={users} />
+                <UserList users={users}/>
 
 
             </div>
@@ -61,30 +63,19 @@ class AdminPageBase extends Component {
 
 }
 
-const UserList = ({ users }) => (
-    <ul>
-        {users.map(user => (
-            <li key={user.uid}>
-        <span>
-          <strong>ID:</strong> {user.uid}
-        </span>
-                <span>
-          <strong>E-Mail:</strong> {user.email}
-        </span>
-                <span>
-          <strong>Username:</strong> {user.username}
-        </span>
-            </li>
-        ))}
-    </ul>
-);
+const UserList = ({users}) => {
+
+    return (
+        <ul>
+            <li><h1>Customer Messages</h1></li>
+            <li><MessageHandler users={users}/></li>
+        </ul>
+
+    )
+};
 
 
-
-
-
-const AdminPage= withFirebase(AdminPageBase);
-
+const AdminPage = withFirebase(AdminPageBase);
 
 
 const condition = firebaseAuth => firebaseAuth && firebaseAuth.roles.includes('ADMIN');

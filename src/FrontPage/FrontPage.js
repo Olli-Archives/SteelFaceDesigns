@@ -1,82 +1,143 @@
 import React, {Component} from 'react';
-import custom_v1_web from "./custom_v1_web.jpg";
+
+
+
 import laptop from "./laptop.jpg"
 import progress from "./progress.jpg"
 
+//import HOC to handle different screen widths below
+import withWindowListener from "../Session/withWindowListener";
 
-export const FrontPage = () =>
-    <div className='body'>
 
-        <div className="front_topics">
-            <div><h1 className="front_title">Completely Custom</h1></div>
-            <ul className='img_ul'>
-                <li className='paragraph_image'>
-                    <div className="image_div">
-                        <img className="image" src={custom_v1_web}/>
-                    </div>
-                </li>
-                <li className='paragraph'>
-                    <p>
-                        By not using canned templates your website will get that sweet sweet custom look. Not only will
-                        your website look better, but we will not be limited to functionalities provided by a 3rd party.
-                        Do you have an idea that you have not seen on the web? If so we can work on that!
-                    </p>
-                </li>
-            </ul>
-        </div>
+class FrontPageBase extends Component {
 
-        <div className="front_topics">
-            <div><h1 className="front_title">Professional Results</h1></div>
-            <ul className='img_ul'>
-                <li className='paragraph_image_right'>
-                    <div className="image_div"><img src={laptop}/></div>
-                </li>
-                <li className='paragraph'>
-                    <p>
-                        Here are SteelFace we are dedicated to providing professional results.
-                    </p>
-                </li>
-            </ul>
-        </div>
+    render() {
+        const window = this.props.window;
+        console.log('front page props', this.props);
+        return (
 
-        <div className="front_topics">
-            <div><h1 className="front_title">Progress Reports</h1></div>
-            <ul className='img_ul'>
-                <li className='paragraph_image'>
-                    <div className="image_div"><img src={progress}/></div>
-                </li>
-                <li className='paragraph'>
-                    <p>
-                        We understand that you are exited to receive updates on your new website. As such we have
-                        created
-                        customer accounts that will house all the information you will need to keep up to date on your
-                        website
-                    </p>
-                </li>
-            </ul>
-        </div>
 
-        <div className="front_topics">
-            <div><h1 className="front_title">About US</h1></div>
-            <ul className='img_ul'>
-                <li className='paragraph_image_right'>
-                    <div className="image_div"></div>
-                </li>
-                <li className='paragraph'>
-                    <p>
-                        Not only are we committed to providing un parallel end product, but we plan on doing so way into
-                        the
-                        future. As such we are keeping up with leading edge technology so that your websites can be
-                        updated
-                        with the latest and greatest before your competition.
+            <div className='page_theme'>
 
-                        By working with us not only will you have access to the latest technology, but you will also
-                        help
-                        use in making a difference in our community. We donate 5% of our profits to local charities.
-                    </p>
-                </li>
-            </ul>
-        </div>
 
-    </div>
-;
+                <div className={`front_topics_${window}`}>
+                    {window === "mobile" ?
+                        <div className={`relative`}>
+                            <div className={`mobile_image_keyboard`}/>
+                            <div className={`mobile_header`}><div className={`centering_div`}>Professional Results</div></div>
+                        </div>
+                        :
+                        null
+                    }
+                    {window === "desktop" ?
+                        <div className={`center`}><h1 className={`front_title_${window}`}>Professional Results</h1>
+                        </div> : null
+                    }
+                    <ul className={`img_ul_${window}`}>
+                        {window === "desktop" ?
+                            <li className={`paragraph_image_right_${window}`}>
+                                <div className={`image_div_${window}`}><img src={laptop}/></div>
+                            </li>
+                            : null
+                        }
+                        <li className='paragraph'>
+                            <div className={`vert_center`}>
+
+                                <p className={`topic_header`}>Unlimited Flexibility, Uncompromised Results</p>
+                                <p>
+                                    Here are SteelFace we are dedicated to providing professional results. Just like
+                                    your grandma knows the best cookies dont come from a can, and nether do the best
+                                    websites. We have gotten away from template based web design, and while not having
+                                    to think inside the box not only will your website get that sweet sweet custom look
+                                    we will also not be limited to certain functionality. As a kicker since your site
+                                    will
+                                    be designed on a platform that knows no boundaries, if there is ever additional
+                                    fetures
+                                    that you would like to add on in the future we can do it with out switching
+                                    platforms
+                                    and rewriting code saving you time and money.
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div className={`front_topics_${window}`}>
+                    {window === "mobile" ?
+                        <div className={`relative`}>
+                            <div className={`mobile_image_progress`}/>
+                            <div className={`mobile_header`}> <div className={`centering_div`}>Updates</div></div>
+                        </div>
+                        :
+                        null
+                    }
+                    {window === "desktop" ?
+                        <div className={`center`}><h1 className={`front_title_${window}`}> Live Updates</h1></div>
+                        : null
+                    }
+                    <ul className={`img_ul_${window}`}>
+                        {window === "desktop" ?
+                            <li className='paragraph_image'>
+                                <div className={`image_div_${window}`}><img src={progress}/></div>
+                            </li> : null
+                        }
+                        <li className='paragraph'>
+
+                            <div className={`vert_center`}>
+                                <p className={`topic_header`}>Stay Up to Date on Your Project's Progress</p>
+                                <p>
+                                    We understand that you are exited to receive updates on your new website. As such we
+                                    have
+                                    created
+                                    customer accounts that will house all the information you will need to keep up to
+                                    date
+                                    on your
+                                    website
+                                </p>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div className={`front_topics_${window}`}>
+                    {window === "mobile" ?
+                        <div className={`relative`}>
+                            <div className={`mobile_image_mail`}/>
+                            <div className={`mobile_header`}> <div className={`centering_div`}>Contact Us</div></div>
+                        </div>
+                        :
+                        null
+                    }
+                    {
+                        window === "desktop" ?
+                            <div className={`center`}><h1 className={`front_title_${window}`}>Contact</h1></div> : null
+                    }
+                    <ul className={`img_ul_${window}`}>
+                        { window==="desktop"?
+                            <li className={`paragraph_image_right_${window}`}>
+
+                                <div className={`image_div_${window}`}><img src={progress}/></div>
+                            </li>:null
+                        }
+                        <li className='paragraph'>
+                            <div className={`vert_center`}>
+                                <p className={`topic_header`}>Let's Get Started!</p>
+                                <p>
+                                    Convinced? Please get a hold of us and we will get your future project started!
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        )
+    }
+}
+
+
+export const FrontPage = withWindowListener(FrontPageBase);
